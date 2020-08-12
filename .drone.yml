@@ -9,7 +9,7 @@ steps:
       from_secret: TOKET
     TG_TOKEN:
       from_secret: TGTOKET
-    CHAT_ID: -1001167537075    
+    CHAT_ID: -1001403511595
     ARCHS: 64
   commands:
     - apt-get -y update && apt-get -y upgrade && DEBIAN_FRONTEND=noninteractive apt-get install --yes git gcc g++ gperf bison flex texinfo help2man make libncurses5-dev autoconf automake libtool libtool-bin gawk wget bzip2 xz-utils unzip patch python3 libstdc++6 subversion curl wget
