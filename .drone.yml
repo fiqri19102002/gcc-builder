@@ -1,0 +1,22 @@
+kind: pipeline
+name: KekToolchains
+
+steps:
+- name: GCC-10-BareElf
+  image: ubuntu:20.04
+  environment:
+    GH_TOKEN:
+      from_secret: TOKET
+    TG_TOKEN:
+      from_secret: TGTOKET
+    CHAT_ID: -1001167537075    
+    ARCHS: 64
+  commands:
+    - apt-get -y update && apt-get -y upgrade && DEBIAN_FRONTEND=noninteractive apt-get install --yes git gcc g++ gperf bison flex texinfo help2man make libncurses5-dev autoconf automake libtool libtool-bin gawk wget bzip2 xz-utils unzip patch python3 libstdc++6 subversion curl wget
+    - git clone https://$GH_TOKEN@github.com/Reinazhard/gcc-test.git 
+    - bash ./gcc-test/runner_user.sh
+trigger:
+  branch:
+    - master
+  event:
+    - push
