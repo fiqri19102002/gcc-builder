@@ -72,13 +72,13 @@ push_gcc()
 {
 chmod -R 777 "$HOME"/x-tools
 cd "$HOME"/x-tools/
-git clone https://$GH_TOKEN@github.com/Reinazhard/gcc.git push
+git clone https://$GH_TOKEN@github.com/silont-project/aarch64-elf-gcc.git push
 cd push
 rm -r *
 mv ../aarch64-elf/* .
 git add .
 git commit -m "[DroneCI]: GCC-11 $(date +%d%m%y)" --signoff
-git push -q https://$GH_TOKEN@github.com/Reinazhard/gcc.git 11.x 
+git push -q https://$GH_TOKEN@github.com/silont-project/aarch64-elf-gcc.git 11.x 
 tg_postinfo
 echo "Job Successful!"
 }
